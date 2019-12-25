@@ -12,7 +12,7 @@ Kafka uses Zookeeper.
 2. kubectl set with required Kubernetes cluster
 3. For the sake of simplicity keep the cluster to a single node. This is because we will setup Kafka with a single POD. Or try to setup a cluster with nodes < pods in case you intend to scale up the Kafka or Zookeeper. This is necessary to ensure no node remains unused. Will explain later why this is important.
 4. Helm setup in the Kubernetes cluster. Take a look at this video to setup Helm on Kubernetes - https://www.youtube.com/watch?v=irvBlE1la_w
-5. Take a look at reference YAMLs included in this git. 
+5. Take a look at reference YAMLs included in this git.
 
 ## Steps
 The steps here are a quick guide to setup Kafka on Kuberetes that can be accessed by apps outside of the Kubernetes cluster.
@@ -141,4 +141,3 @@ To connect to your ZooKeeper server from outside the cluster execute the followi
 
     export SERVICE_IP=$(kubectl get svc --namespace default bitnami-kafka-zookeeper --template "{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}")
     zkCli.sh $SERVICE_IP:2181
-# bitnami-kafka-setup-on-k8s
